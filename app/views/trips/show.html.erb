@@ -5,7 +5,13 @@
 </p>
 
 <h4>photos</h4>
+	<p>
+<!--FIXME		<=image_tag(@trip.photos,  :height => 150, :crop => :fill) %>-->
+	</p>
+<%= render @user.trips %>
+		
 <%= render @trip.photos %>
+
 
 <%= link_to 'Edit', edit_trip_path(@trip) %> |
 <%= link_to 'Back', trips_path %>

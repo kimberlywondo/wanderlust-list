@@ -3,6 +3,7 @@ class TripsController < ApplicationController
 	
 	def index
 		@trips = Trip.all
+#		Trip.pluck(:city).uniq
 	end
 	
 	def show
@@ -15,19 +16,31 @@ class TripsController < ApplicationController
     @trip = Trip.new
 	end 
 	
-	def edit
-	end
-	
 	def create
 		@user = current_user
 		@trip = @user.trips.build(trip_params)
 		
+		if @trip.save
+      redirect_to trips_url
+    else
+      render 'new'
+    end
+	end
+	
+	def edit
+		@trip = Trip.find(params[:id])
 	end
 	
 	def update
+		@trip = Trip.find(params[:id])
+		@trip.update(trip_params)
+		redirect_to trips_path
 	end
 	
 	def destroy
+		@trip = Trip.find(params[:id])
+		@trip.destroy
+		redirect_to trips_path
 	end
 	
 	private 

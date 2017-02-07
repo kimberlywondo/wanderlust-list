@@ -1,4 +1,8 @@
 class PhotosController < ApplicationController
+	def index
+		@photos = Photo.all
+	end
+	
 	def create
 		@trip = Trip.find(params[:trip_id])
 		@photo = @trip.photos.create(photo_params)
