@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-	load_and_authorize_resource only: [:edit, :update, :destroy]
+	load_and_authorize_resource only: [:update, :destroy]
 	
 	def index
 		@trips = Trip.all
@@ -19,6 +19,9 @@ class TripsController < ApplicationController
 	end
 	
 	def create
+		@user = current_user
+		@trip = @user.trips.build(trip_params)
+		
 	end
 	
 	def update
