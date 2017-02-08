@@ -9,7 +9,7 @@ class TripsController < ApplicationController
 	def show
 		@user = current_user
 		@trip = Trip.find(params[:id])
-		@photos = Photo.where(trip_id: @trip.id)
+#		@photos = Photo.where(trip_id: @trip.id)
 	end
 	
 	def new

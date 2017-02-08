@@ -1,9 +1,9 @@
 class PhotosController < ApplicationController
 	def index
-#		@photos = Photo.all
+		@photos = Photo.all
 #		@trip = Trip.find(params[:trip_id])
 #   @photo = @trip.photos.find(params[:id])
-		@photos = Photo.where(trip_id: @trip.id)
+#		@photos = Photo.where(trip_id: @trip.id)
 	end
 	
 	def show
@@ -19,6 +19,7 @@ class PhotosController < ApplicationController
 	def create
 		@trip = Trip.find(params[:trip_id])
 		@photo = @trip.photos.create(photo_params)
+		
 		redirect_to trip_path(@trip)
 	end
 	
@@ -31,7 +32,8 @@ class PhotosController < ApplicationController
 	 @trip = Trip.find(params[:trip_id])
    @photo = @trip.photos.find(params[:id])
    @photo.update(photo_params)
-   redirect_to @trip
+   redirect_to trip_path(@trip)
+#redirect_to @trip
 	end
 	
 	def destroy
