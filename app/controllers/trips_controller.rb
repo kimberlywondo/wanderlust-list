@@ -3,7 +3,8 @@ class TripsController < ApplicationController
 	
 	def index
 		@user = current_user
-		@trips = Trip.all
+		@trips = current_user.trips
+#		@trips = Trip.find(params[:user_id])
 #		Trip.pluck(:city).uniq-->
 	end
 	
