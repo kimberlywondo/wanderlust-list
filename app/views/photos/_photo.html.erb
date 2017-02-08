@@ -3,7 +3,9 @@
 </p>
 <p>This is in the photo partial</p>
 <p>
+	<% if current_user.id == @trip.user_id %>
   <%= link_to 'Destroy Photo', [photo.trip, photo],
               method: :delete,
               data: { confirm: 'Are you sure?'} %>
+	<% end %>
 </p>
