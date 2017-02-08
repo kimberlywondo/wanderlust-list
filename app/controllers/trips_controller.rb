@@ -15,6 +15,7 @@ class TripsController < ApplicationController
 	def new
 		@user = current_user
     @trip = Trip.new
+		1.times { @trip.photos.build}
 	end 
 	
 	def create
@@ -46,6 +47,6 @@ class TripsController < ApplicationController
 	
 	private 
 	def trip_params
-		params.require(:trip).permit(:city, :country)
+		params.require(:trip).permit(:city, :country, photos_attributes: [:photo_url, :description])
 	end
 end
