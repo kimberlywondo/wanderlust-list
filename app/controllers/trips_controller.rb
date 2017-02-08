@@ -3,12 +3,13 @@ class TripsController < ApplicationController
 	
 	def index
 		@trips = Trip.all
-#		Trip.pluck(:city).uniq
+#		Trip.pluck(:city).uniq-->
 	end
 	
 	def show
 		@user = current_user
 		@trip = Trip.find(params[:id])
+		@photos = Photo.where(trip_id: @trip.id)
 	end
 	
 	def new

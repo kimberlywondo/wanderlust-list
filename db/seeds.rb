@@ -5,23 +5,38 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Trip.create(city: "Atlanta",
+Trip.create(city: "City 1",
             country: "USA")
 
-Trip.create(city: "Chicago",
+Trip.create(city: "City 1",
             country: "USA")
 
-atlanta = Trip.find(1)
-chicago = Trip.find(2)
+Trip.create(city: "City 2",
+            country: "USA")
 
-Photo.create(description: "Favorite city in the world!", 
-						photo_url: "http://www.wheretraveler.com/sites/default/files/styles/promoted_image_social_large/public/atlanta-aerial_c-richardcawood-flickr.jpg?itok=e1ZjM0AZ", 
-						trip_id: atlanta.id)
+Trip.create(city: "City 3",
+            country: "USA")
 
-Photo.create(description: "Love this place!", 
-						photo_url: "https://media1.britannica.com/eb-media/62/66862-004-C63E8F9F.jpg",
-						trip_id: atlanta.id)
+city1 = Trip.find(1)
+city2 = Trip.find(2)
+city3 = Trip.find(3)
 
-Photo.create(description: "Must visit!", 
-						photo_url: "http://d3qi0qp55mx5f5.cloudfront.net/www/i/homepage/spotlight/urban-chicago-spotlight.jpg",
-						trip_id: chicago.id)
+Photo.create(description: "City 1 photo 1", 
+						photo_url: "City 1 photo_url 1", 
+						trip_id: city1.id)
+
+Photo.create(description: "City 1 photo 2", 
+						photo_url: "City 1 photo_url 2",
+						trip_id: city1.id)
+
+Photo.create(description: "City 2 photo 1", 
+						photo_url: "City 2 photo_url 1",
+						trip_id: city2.id)
+
+Photo.create(description: "City 2 photo 2", 
+						photo_url: "City 2 photo_url 2",
+						trip_id: city2.id)
+
+Photo.create(description: "City 3 photo 1", 
+						photo_url: "City 3 photo_url 2",
+						trip_id: city3.id)
