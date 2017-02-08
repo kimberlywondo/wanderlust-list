@@ -14,4 +14,8 @@
 
 
 <!--<= link_to 'Edit', edit_trip_path(@trip) %> |-->
+<% if current_user.id == @trip.user_id %>
 <%= link_to 'Back', trips_path %>
+<% else %>
+<%= link_to 'Back', trips_explore_path %>
+<% end %>
