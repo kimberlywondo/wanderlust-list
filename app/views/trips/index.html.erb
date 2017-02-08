@@ -1,14 +1,10 @@
 <h1>Indexxxx honeyyyy!!!</h1>
 
- <% @trips.each do |trip| %>
-    <tr>
-      <td><%= trip.city %></td>
-      <td><%= trip.country %></td>
-<!--      <td>< photo.photo_url %></td>-->
-      <td><%= link_to 'Show', trip_path(trip) %></td>
-      <td><%= link_to 'Edit', edit_trip_path(trip) %></td>
-      <td><%= link_to 'Destroy', trip_path(trip),
+<% @trips.each do |trip| %>
+		<p><%= trip.city %></p>
+    <a><%= link_to 'Show', trip_path(trip) %></a>
+    <a><%= link_to 'Edit', edit_trip_path(trip) %></a>
+    <a><%= link_to 'Destroy', trip_path(trip),
               method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
+              data: { confirm: 'Are you sure?' } %></a>
+<% end %>

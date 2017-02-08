@@ -1,3 +1,9 @@
 <p>
   <%= photo.photo_url %>
 </p>
+<p>This is in the photo partial</p>
+<p>
+  <%= link_to 'Destroy Photo', [photo.trip, photo],
+              method: :delete,
+              data: { confirm: 'Are you sure?'} %>
+</p>

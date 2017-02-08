@@ -1,4 +1,4 @@
-<%= form_for(trip) do |f| %>
+<%= form_for @trip do |f| %>
   <% if trip.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
@@ -11,19 +11,30 @@
     </div>
   <% end %>
 
-  <div class="field">
+<h1> Add a Trip (trips_form partial)</h1>
+  <div>
     <%= f.label :city %>
     <%= f.text_field :city %>
   </div>
 
-  <div class="field">
+  <div>
     <%= f.label :country %>
     <%= f.text_area :country %>
   </div>
 
-<!--< render 'photos/form' %>-->
-
-  <div class="actions">
+<%= f.fields_for :photos do |photos_form| %>
+      <li>
+<!--				<= photos_form.check_box :_destroy%>-->
+        <%= photos_form.label :photo_url %>
+        <%= photos_form.text_field :photo_url %>
+ 
+        <%= photos_form.label :description %>
+        <%= photos_form.text_field :description %>
+      </li>
+    <% end %>
+  
+	<div>
     <%= f.submit %>
   </div>
+
 <% end %>
