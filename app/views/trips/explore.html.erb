@@ -1,0 +1,7 @@
+<h1>EXPLORE!</h1>
+<% @trips.each do |trip| %>
+		<p><%= trip.city %></p>
+    <a><%= link_to 'Show', trip_path(trip) %></a>
+    <a><%= link_to 'Add to my List', edit_trip_path(trip) %></a>
+<!--#FIXME -->
+<% end %>

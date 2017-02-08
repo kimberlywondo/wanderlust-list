@@ -1,9 +1,14 @@
 class TripsController < ApplicationController
-	load_and_authorize_resource only: [:update, :destroy]
+	load_and_authorize_resource only: [:edit, :update, :destroy]
 	
 	def index
+		@user = current_user
 		@trips = Trip.all
 #		Trip.pluck(:city).uniq-->
+	end
+	
+	def explore
+		@trips = Trip.all
 	end
 	
 	def show
