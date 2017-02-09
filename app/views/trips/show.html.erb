@@ -7,6 +7,14 @@
 <h4>photos</h4>
 	<p>
 <!--FIXME		<=image_tag(@trip.photos,  :height => 150, :crop => :fill) %>-->
+		<div>
+		<% if current_user.id == @trip.user_id %>
+		<a><%= link_to 'Edit', edit_trip_path %></a>
+    <a><%= link_to 'Destroy', trip_path,
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></a>
+<% end %>
+			</div>
 	</p>
 
 		
@@ -14,8 +22,6 @@
 
 
 <!--<= link_to 'Edit', edit_trip_path(@trip) %> |-->
-<% if current_user.id == @trip.user_id %>
-<%= link_to 'Back', trips_path %>
-<% else %>
-<%= link_to 'Back', trips_explore_path %>
-<% end %>
+
+<%= link_to 'Go to your List', trips_path %>
+<%= link_to 'Explore more cities', trips_explore_path %>

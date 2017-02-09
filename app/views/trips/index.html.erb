@@ -1,5 +1,8 @@
 <h1>Your trips honeyyyy!!!</h1>
 
+<% if @trips.count == 0 %>
+<p>Add your first trip!</p>
+<% else %>
 <% @trips.each do |trip| %>
 		<p><%= trip.city %></p>
     <a><%= link_to 'Show', trip_path(trip) %></a>
@@ -8,6 +11,11 @@
               method: :delete,
               data: { confirm: 'Are you sure?' } %></a>
 <% end %>
+<% end %>
+
 <p>
 <%= link_to 'Add A Trip', new_trip_path %>
+</p>
+<p>
+<%= link_to 'Explore more cities', trips_explore_path %>
 </p>
