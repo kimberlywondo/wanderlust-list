@@ -4,8 +4,11 @@
 <p>Add your first trip!</p>
 <% else %>
 <% @trips.each do |trip| %>
-		<p><%= trip.city %></p>
-    <a><%= link_to 'Show', trip_path(trip) %></a>
+    <h4>
+			<%= link_to trip_path(trip) do %>
+				<%= trip.city %>
+			<% end %>
+		</h4>
     <a><%= link_to 'Edit', edit_trip_path(trip) %></a>
     <a><%= link_to 'Destroy', trip_path(trip),
               method: :delete,
@@ -13,9 +16,11 @@
 <% end %>
 <% end %>
 
-<p>
-<%= link_to 'Add A Trip', new_trip_path %>
-</p>
-<p>
-<%= link_to 'Explore more cities', trips_explore_path %>
-</p>
+<div>
+	<button>
+		<%= link_to 'Add A Trip', new_trip_path %>
+	</button>
+	<button>
+		<%= link_to 'Explore', trips_explore_path %>
+	</button>
+</div>

@@ -26,9 +26,11 @@ class TripsController < ApplicationController
 	end 
 	
 	def create
-		@user = current_user
-		@trip = @user.trips.build(trip_params)
-		@trip.user_id = current_user.id
+#		@user = current_user
+#		@trip = @user.trips.build(trip_params)
+		@trip = current_user.trips.build(trip_params)
+#		@trip.username = current_user.username
+#		@trip.user_id = current_user.id
 		if @trip.save
       redirect_to trips_url
     else
