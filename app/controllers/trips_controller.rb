@@ -10,6 +10,7 @@ class TripsController < ApplicationController
 	
 	def explore
 		@trips = Trip.all
+#		@user = @trip.user
 	end
 	
 	def show
@@ -27,7 +28,7 @@ class TripsController < ApplicationController
 	def create
 		@user = current_user
 		@trip = @user.trips.build(trip_params)
-		
+		@trip.user_id = current_user.id
 		if @trip.save
       redirect_to trips_url
     else
@@ -53,6 +54,6 @@ class TripsController < ApplicationController
 	
 	private 
 	def trip_params
-		params.require(:trip).permit(:city, :country, photos_attributes: [:id, :photo_url, :description])
+		params.require(:trip).permit(:user_id, :city, :country, photos_attributes: [:id, :photo_url, :description])
 	end
 end
