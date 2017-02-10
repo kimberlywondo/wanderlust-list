@@ -12,14 +12,27 @@
   </head>
 
   <body>
-			<% if user_signed_in? %>
-				Logged in as <strong><%= current_user.username %></strong>
-				<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+<div class="top-bar">
+  <div class="top-bar-left">
+		<h6 class="menu-text"><a href="/">WL</a></h6>
+	</div>
+  <div class="top-bar-right">
+      <% if user_signed_in? %> 
+      
+        <ul class="menu">
+					<li><a href='/trips/'><%= current_user.username %>'s List</a></li>
+					<li><%= link_to 'Explore', trips_explore_path %></li>
+          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+        </ul>
+   
 			<% else %>
-				<p><a data-open="loginmodal">LOGIN</a><%= render "loginmodal" %></p>
-				<p><a data-open="signupmodal">SIGNUP</a><%= render "signupmodal" %></p>
+		<ul class="menu">
+				<li><a data-open="loginmodal">LOGIN</a><%= render "loginmodal" %></li>
+				<li><a data-open="signupmodal">SIGNUP</a><%= render "signupmodal" %></li>
 			<% end %>
+    </ul>
+  </div>
+</div>
     <%= yield %>
-
   </body>
 </html>

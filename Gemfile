@@ -57,3 +57,5 @@ gem 'devise'
 #user authorization
 gem 'cancancan'
 gem 'foundation-rails'
+
+gem 'jquery-turbolinks'

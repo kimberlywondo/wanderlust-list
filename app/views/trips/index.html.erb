@@ -1,26 +1,30 @@
-<h1>Your trips honeyyyy!!!</h1>
-
+<div id='yourtripscontainer'>
+<h1>Places you've been</h1>
 <% if @trips.count == 0 %>
 <p>Add your first trip!</p>
 <% else %>
 <% @trips.each do |trip| %>
-    <h4>
-			<%= link_to trip_path(trip) do %>
-				<%= trip.city %>
-			<% end %>
-		</h4>
+<div class="card" style="width: 300px;">
+  <div class="card-divider">
+    <h4><%= link_to trip_path(trip) do %>
+					<%= trip.city %></h4>
+				<% end %>
+  </div>
+  <img src="assets/img/generic/rectangle-1.jpg">
+  <div class="card-section">
     <a><%= link_to 'Edit', edit_trip_path(trip) %></a>
     <a><%= link_to 'Destroy', trip_path(trip),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></a>
+  </div>
+</div> 
 <% end %>
 <% end %>
+</div>
 
 <div>
-	<button>
-		<%= link_to 'Add A Trip', new_trip_path %>
-	</button>
-	<button>
-		<%= link_to 'Explore', trips_explore_path %>
-	</button>
+	<button><%= link_to 'Add A Trip', new_trip_path %></button>
+	<button><%= link_to 'Explore', trips_explore_path %></button>
 </div>
+	
+

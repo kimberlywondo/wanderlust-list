@@ -1,8 +1,13 @@
 <h1>EXPLORE!</h1>
 <% @trips.each do |trip| %>
-		<p><%= trip.city %></p>
-		<p><%= trip.user_id %></p>
-    <a><%= link_to 'Show', trip_path(trip) %></a>
+<div class="card" style="width: 300px;">
+  <div class="card-divider">
+    <p><%= trip.user_id %>'s trip to <%= trip.city %></p>
+  </div>
+  <img src="#">
+  <div class="card-section">
+		<a><%= link_to 'Show', trip_path(trip) %></a>
     <a><%= link_to 'Add to my List', edit_trip_path(trip) %></a>
-<!--#FIXME -->
+  </div>
+</div>	    
 <% end %>
