@@ -1,17 +1,12 @@
-<h1>Splaaaaasshh Honey!!</h1>
-<!--
-	< @trips.each do |trip| %>
-		<p><= trip.city %></p>
-	< end %>
--->
+<h1>Wanderlust List</h1>
+
+<% if user_signed_in? %>
+	<div>
+		<a><%= link_to 'Your Wanderlust List', trips_path %></a>
+		<a><%= link_to 'Start Exploring', trips_explore_path %></a>
+	</div>
+<% else %>
+<% end %>
 
 
-<p><a data-open="loginmodal">LOGIN</a><%= render "loginmodal" %></p>
-<p><a data-open="signupmodal">SIGNUP</a><%= render "signupmodal" %></p>
 
-
-
-<div>
-	<a><%= link_to 'Your Wanderlust List', trips_path %></a>
-	<a><%= link_to 'Start Exploring', trips_explore_path %></a>
-</div>
