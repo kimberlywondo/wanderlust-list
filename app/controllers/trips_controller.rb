@@ -16,7 +16,7 @@ class TripsController < ApplicationController
 	def show
 		@user = current_user
 		@trip = Trip.find(params[:id])
-#		@photos = Photo.where(trip_id: @trip.id)
+#		@photo = @trip.photos.find(params[:trip_id])
 	end
 	
 	def new
@@ -56,6 +56,6 @@ class TripsController < ApplicationController
 	
 	private 
 	def trip_params
-		params.require(:trip).permit(:user_id, :city, :country, photos_attributes: [:id, :photo_url, :description])
+		params.require(:trip).permit(:user_id, :city, :country, photos_attributes: [:id, :photo_url, :description, :image])
 	end
 end
