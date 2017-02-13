@@ -27,9 +27,9 @@
       </li>
 			  <div class="field">
 					add an image....
-					<%= photos_form.file_field :image %>
+					<%= photos_form.file_field :image, multiple: true, name: "photos[image][]" %>
 				</div>
-    
+<!--    <= file_field_tag "images[]", type: :file, multiple: true %>-->
 	<div>
     <%= f.submit %>
   </div>

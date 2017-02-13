@@ -23,10 +23,12 @@ class TripsController < ApplicationController
 	def new
 #		@user = current_user
 #    @trip = Trip.new
+		
 		@trip = current_user.trips.build
+		@photo = @trip.photos.build
 #		@photo = @trip.photos.build(trip_params)
 #		@photo.trip_id = @trip.id
-		1.times { @trip.photos.build}
+#		3.times { @trip.photos.build}
 	end 
 	
 	def create
@@ -36,6 +38,15 @@ class TripsController < ApplicationController
 #		@trip.username = current_user.username
 #		@trip.user_id = current_user.id
 		if @trip.save
+			params[:photos]['image'].each do |a|
+          @photo = @trip.photos.create!(:image => a)
+       end
+			 # to handle multiple images upload on create
+#      if params[:images]
+#        params[:images].each { |image|
+#          @trip.photos.create(image: image)
+#        }
+#      end
       redirect_to trips_url
     else
       render 'new'
