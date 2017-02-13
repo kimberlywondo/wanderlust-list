@@ -1,0 +1,23 @@
+<h1>Photo eidt.html.erb (WORKING)</h1>
+
+<%= form_for([@trip, @photo]) do |f| %>
+
+    <p>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </p>
+
+		<div class="field">
+				add an image....
+				<%= f.file_field :image %>
+		</div>
+
+    <p>
+      <%= f.submit %>
+    </p>
+<!--<= link_to 'Add Photo', photo_path(@photo) %>		-->
+<!--<= link_to 'Add Photo', trip_path(@trip) %>-->
+
+<% end %>
+
+<!--<= render 'form', photo: @photo %>-->

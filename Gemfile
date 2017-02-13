@@ -63,3 +63,5 @@ gem 'jquery-turbolinks'
 # File uploader
 gem 'carrierwave'
 gem 'mini_magick' # For different versions of an image
+
+gem 'seed_dump'

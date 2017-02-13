@@ -1,0 +1,9 @@
+<h1>PHOTOS Index.html.erb (WORKING!)</h1>
+
+<% @photos.each do |photo| %>
+  <%= image_tag(photo.image_url(:thumb).to_s) %>
+  <%= photo.description %>
+<% end %>
+
+
+<!--<= image_tag(@photo.image_url.to_s) %>-->

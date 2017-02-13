@@ -1,5 +1,21 @@
-<h1>Add a photo:</h1>
-  <div class="field">
-    add an image....
-    <%= f.file_field :image %>
-  </div>
+<h1>PHOTO _form.html.erb</h1>
+
+<%= form_for([@trip, @photo]) do |f| %>
+
+    <p>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </p>
+
+		<div class="field">
+				add an image....
+				<%= f.file_field :image %>
+		</div>
+
+    <p>
+      <%= f.submit %>
+    </p>
+<!--<= link_to 'Add Photo', photo_path(@photo) %>		-->
+<!--<= link_to 'Add Photo', trip_path(@trip) %>-->
+
+<% end %>

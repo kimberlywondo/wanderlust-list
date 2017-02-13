@@ -4,24 +4,26 @@ class TripsController < ApplicationController
 	def index
 		@user = current_user
 		@trips = current_user.trips
-#		@trips = Trip.find(params[:user_id])
+		
 #		Trip.pluck(:city).uniq-->
 	end
 	
 	def explore
 		@trips = Trip.all
+		@photos = Photo.all
 #		@user = @trip.user
 	end
 	
 	def show
 		@user = current_user
 		@trip = Trip.find(params[:id])
-#		@photo = @trip.photos.find(params[:trip_id])
+#		@photos = Photo.where(trip_id: @trip.id)
 	end
 	
 	def new
-		@user = current_user
-    @trip = Trip.new
+#		@user = current_user
+#   @trip = Trip.new
+		@trip = current_user.trips.build
 		1.times { @trip.photos.build}
 	end 
 	

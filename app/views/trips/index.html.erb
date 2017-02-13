@@ -10,8 +10,9 @@
 							<%= trip.city %>
 				</h4>
 						<% end %>
+				<%= trip.photos.first %>
 			</div>
-			<div class="image_placeholder">IMG</div>
+			
 			<div class="card-section">
 				<a><%= link_to 'Edit', edit_trip_path(trip) %>
 				</a>
@@ -24,6 +25,8 @@
 		<% end %>
 	<% end %>
 </div>
+
+<!--< image_tag(@photos) %>-->
 
 	<div>
 		<button><%= link_to 'Add A Trip', new_trip_path %></button>
