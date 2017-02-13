@@ -1,8 +1,12 @@
-<H1>PHOTO _photo.html.erb</H1>
+<H4>PHOTO _photo.html.erb</h4>
 <p>
 
 </p>
-<p>This is in the photo partial</p>
+<!--< @trip.photos.each do |photo| %>-->
+<!--	<= link_to 'Edit Photo', edit_trip_photo_path(@trip) %>-->
+  <%= image_tag(photo.image_url(:thumb).to_s) %>
+  <%= photo.description %>
+<!--< end %>-->
 <p>
 	<% if current_user.id == @trip.user_id %>
   <%= link_to 'Destroy Photo', [photo.trip, photo],
@@ -11,3 +15,4 @@
 	<% end %>
 </p>
 
+	

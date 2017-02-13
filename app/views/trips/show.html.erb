@@ -1,14 +1,17 @@
-<h1>Show honeyyy!!!</h1>
+<h1>Trips Show honeyyy!!!</h1>
 
+<h4><%= @trip.user.username %>'s trip to: </h4>
 <h4>
 <%= @trip.city %>, <%= @trip.country %>
 </h4>
 
+<%= render @trip.photos %>
+
 	<p>
 		<div>
 		<% if current_user.id == @trip.user_id %>
-		<a><%= link_to 'Edit', edit_trip_path %></a>
-    <a><%= link_to 'Destroy', trip_path,
+		<a><%= link_to 'Edit Trip', edit_trip_path %></a>
+    <a><%= link_to 'Delete Trip', trip_path,
               method: :delete,
               data: { confirm: 'Are you sure?' } %></a>
 <% end %>
@@ -16,7 +19,7 @@
 	</p>
 
 		
-<%= render @trip.photos %>
+
 
 
 <!--<= link_to 'Edit', edit_trip_path(@trip) %> |-->

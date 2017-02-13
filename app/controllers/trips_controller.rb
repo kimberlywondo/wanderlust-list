@@ -22,8 +22,10 @@ class TripsController < ApplicationController
 	
 	def new
 #		@user = current_user
-#   @trip = Trip.new
+#    @trip = Trip.new
 		@trip = current_user.trips.build
+#		@photo = @trip.photos.build(trip_params)
+#		@photo.trip_id = @trip.id
 		1.times { @trip.photos.build}
 	end 
 	

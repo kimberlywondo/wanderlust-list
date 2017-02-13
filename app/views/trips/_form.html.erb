@@ -13,31 +13,26 @@
 
 <h1> Add a Trip (trips_form partial)</h1>
   <div>
-    <%= f.label :city %>
     <%= f.text_field :city %>
   </div>
 
   <div>
-    <%= f.label :country %>
     <%= f.text_area :country %>
   </div>
 
-<%= f.fields_for :photos do |photos_form| %>
-      <li>
-        <%= photos_form.label :photo_url %>
-        <%= photos_form.text_field :photo_url %>
- 
+	<%= f.fields_for :photos do |photos_form| %>
+      <li> 
         <%= photos_form.label :description %>
         <%= photos_form.text_field :description %>
       </li>
 			  <div class="field">
 					add an image....
-					<%= f.file_field :image %>
+					<%= photos_form.file_field :image %>
 				</div>
-    <% end %>
-  
+    
 	<div>
     <%= f.submit %>
   </div>
 
+<% end %>
 <% end %>
