@@ -2,12 +2,12 @@
 
 <%= form_for([@trip, @photo]) do |f| %>
     <p>
-      <%= f.text_area :description %>
+      <%= f.text_area :description, placeholder: "description" %>
     </p>
 
 		<div class="field">
 				add an image....
-				<%= f.file_field :image %>
+				<%= f.file_field :image, class:"fancy radius button" %>
 		</div>
 
     <p>

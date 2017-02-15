@@ -1,18 +1,14 @@
-<H4>PHOTO _photo.html.erb</h4>
-<p>
-
-</p>
+<div class="polaroidcontainer">
+<div class="image">
+	<%= image_tag(photo.image_url(:normal).to_s) %>
 <% @trip.photos.each do |photo| %>
-<!--	<= link_to 'Edit Photo', edit_trip_photo_path(@trip) %>-->
 <%= photo.description %>
-<% end %>
-<%= image_tag(photo.image_url(:normal).to_s) %>
-<p>
+<!--	<= link_to 'Edit Photo', edit_trip_photo_path(@trip) %>-->
 	<% if current_user.id == @trip.user_id %>
   <%= link_to 'Destroy Photo', [photo.trip, photo],
               method: :delete,
               data: { confirm: 'Are you sure?'} %>
 	<% end %>
-</p>
-
-	
+</div>
+<% end %>
+</div>

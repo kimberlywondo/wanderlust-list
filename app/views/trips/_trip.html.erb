@@ -1,10 +1,11 @@
-      <li> 
-        <%= photos_form.label :description %>
-        <%= photos_form.text_field :description %>
-      </li>
-			  <div class="field">
+    <div class="photoform">
+      <div>
+        <%= photos_form.text_field :description, placeholder: "description" %>
+      </div>
+			  <div>
 					add an image....
+          <div>
 					<%= photos_form.file_field :image %>
+        </div>
 				</div>
-
-
+  </div>

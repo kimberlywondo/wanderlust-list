@@ -1,4 +1,5 @@
 <div class="explorecontainer">
+  <h1>Explore</h1>
     <% @trips.each do |trip| %>
     <div class="image">
         <figure class="cap-bot">
@@ -10,7 +11,7 @@
                 <a><%= trip.country%></a>
             </div>
             <%= image_tag(trip.photos.first.image_url(:resize).to_s) %>
-            <%= link_to trip_path(trip) do%>
+            <%= link_to trip_photos_path(trip)do%>
             <figcaption>
                 <%= trip.photos.count %>
                 photos

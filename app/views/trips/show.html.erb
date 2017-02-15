@@ -1,11 +1,11 @@
-<h1>Trips Show honeyyy!!!</h1>
+<!-- Not using this page... link_to trip_photos_path(trip) (photos.index.html.erb) in index and explore instead -->
 
 <h4><%= @trip.user.username %>'s trip to: </h4>
 <h4><%= @trip.city %>, <%= @trip.country %></h4>
 
 <%= render @trip.photos %>
 
-	
+
 <div>
 	<p>
 		<% if current_user.id == @trip.user_id %>
@@ -14,11 +14,11 @@
               method: :delete,
               data: { confirm: 'Are you sure?' } %></a>
 		<% end %>
-	</p>	
+	</p>
 </div>
-	
 
-		
+
+
 
 
 

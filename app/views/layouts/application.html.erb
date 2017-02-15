@@ -9,12 +9,15 @@
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Amatic+SC|Architects+Daughter|Josefin+Sans|Shadows+Into+Light' %>
   </head>
 
   <body>
 <header class="header">
   <h1 class="main-header"><a class="headline" href="/">WanderList</a></h1>
+
   <ul class="header-subnav">
+
 <div class="top-bar">
 	<% if user_signed_in? %>
   <div class="top-bar-left">

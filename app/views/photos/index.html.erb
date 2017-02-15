@@ -1,9 +1,22 @@
-<h1>PHOTOS Index.html.erb (WORKING!)</h1>
-
+<div class="photoindex">
+<h2><%= @trip.user.username %>'s trip to: </h2>
+<h4><%= @trip.city %>, <%= @trip.country %></h4>
+</div>
+<div class="polaroidcontainer">
 <% @photos.each do |photo| %>
-  <%= image_tag(photo.image_url(:thumb).to_s) %>
+<div class="polaroid">
+  <div class="polaroid-image">
+  <%= image_tag(photo.image_url(:resize).to_s) %>
+  </div>
+  <div class="polaroid-bottom">
   <%= photo.description %>
+  </div>
+
+</div>
 <% end %>
+</div>
+
+
 
 
 <!--<= image_tag(@photo.image_url.to_s) %>-->

@@ -3,39 +3,44 @@
         <h2>Sign up</h2>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
-        <div class="field">
-            <%= f.text_field :username, placeholder: "username", autofocus: true  %>
-        </div>
-        <div class="field">
-            <%= f.email_field :email, placeholder: "email" %>
-        </div>
-        <div class="field">
-            <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %>
+          <div class="field">
+              <%= f.text_field :username, placeholder: "username", autofocus: true  %>
+          </div>
+
+          <div class="field">
+              <%= f.email_field :email, placeholder: "email" %>
+          </div>
+
+          <div class="field">
+              <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %>
                 characters minimum)</em>
-            <% end %>
-            <%= f.password_field :password, placeholder: "password", autocomplete: "off" %>
-        </div>
-        <div class="field">
-            <%= f.password_field :password_confirmation, placeholder: "confirm password", autocomplete: "off" %>
-        </div>
-        <div class="actions">
-            <div class="row">
-                <div class="small-6 large-4 columns">
-                    <a><%= f.submit "			Sign Up			", class:"fancy radius button" %></a>
-                </div>
-            </div>
-        </div>
+              <% end %>
+              <%= f.password_field :password, placeholder: "password", autocomplete: "off" %>
+          </div>
+
+          <div class="field">
+              <%= f.password_field :password_confirmation, placeholder: "confirm password", autocomplete: "off" %>
+          </div>
+
+          <br>
+          <div class="actions">
+              <div class="row">
+                      <a><%= f.submit "			Sign Up			", class:"fancy radius button" %></a>
+              </div>
+          </div>
+          <br>
         <% end %>
-        <p>
+        <!-- <p>
             <h6>Already a member?</h6>
-        </p>
+        </p> -->
 
         <!--extracted from render devise/shared/links-->
 
-        <%= render "devise/shared/links" %>
-<!--MODAL CLOS BUTTON  -->
+        <!-- <%= render "devise/shared/links" %> -->
+
+<!--MODAL CLOSE BUTTON  -->
         <button class="close-button" data-close aria-label="Close modal" type="button">
             <span aria-hidden="true">&times;</span>
         </button>
-    </div>
+</div>
