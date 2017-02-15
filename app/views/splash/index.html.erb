@@ -1,15 +1,38 @@
-<h1>WanderList</h1>
-
+<div class="splash-wrapper">
 <% if user_signed_in? %>
 	<div>
-		<a><%= link_to 'Your Wanderlust List', trips_path %></a>
-		<a><%= link_to 'Start Exploring', trips_explore_path %></a>
+		<button><%= link_to 'My WanderList', trips_path, :class => 'button-gradient' %></button>
+		<button><%= link_to 'Start Exploring', trips_explore_path, :class => 'button-gradient' %></button>
 	</div>
 <% else %>
-	<h4>Sign up.</h4>
-	<h4> Share your experiences.</h4>
-	<h4>Find inspiration. </h4>
+</div>
+
+<div class="row collapse expanded">
+	<div class="small-12 medium-12 large-12 columns">
+		<div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+		  <ul class="orbit-container">
+            <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+    <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+		    <li class="is-active orbit-slide">
+		    	<img class="orbit-image" src="http://foundation.zurb.com/sites/docs/assets/img/orbit/01.jpg" alt="Space">
+			  	<span class="orbit-caption"><p>Sign Up.</p><p>Share your experiences.</p><p>Find inspiration.</p></span>
+		    </li>
+        <li class="orbit-slide">
+		    	<img class="orbit-image" src="http://foundation.zurb.com/sites/docs/assets/img/orbit/01.jpg" alt="Space">
+			  	<span class="orbit-caption"><p>Sign Up.</p><p>Share your experiences.</p><p>Find inspiration.</p>/span>
+		    </li>
+        <li class="orbit-slide">
+		    	<img class="orbit-image" src="http://foundation.zurb.com/sites/docs/assets/img/orbit/01.jpg" alt="Space">
+			  	<span class="orbit-caption"><p>Sign Up.</p><p>Share your experiences.</p><p>Find inspiration.</p></span>
+		    </li>
+  </ul>
+		  <nav class="orbit-bullets">
+		    <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
+		    <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
+		    <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
+		    <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
+		  </nav>
+		</div>
+	</div>
+</div>
 <% end %>
-
-
-

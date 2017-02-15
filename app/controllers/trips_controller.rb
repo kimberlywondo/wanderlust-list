@@ -21,13 +21,8 @@ class TripsController < ApplicationController
 	end
 	
 	def new
-#		@user = current_user
-#    @trip = Trip.new
-		
 		@trip = current_user.trips.build
 		@photo = @trip.photos.build
-#		@photo = @trip.photos.build(trip_params)
-#		@photo.trip_id = @trip.id
 #		3.times { @trip.photos.build}
 	end 
 	
@@ -35,18 +30,11 @@ class TripsController < ApplicationController
 #		@user = current_user
 #		@trip = @user.trips.build(trip_params)
 		@trip = current_user.trips.build(trip_params)
-#		@trip.username = current_user.username
-#		@trip.user_id = current_user.id
 		if @trip.save
-			params[:photos]['image'].each do |a|
-          @photo = @trip.photos.create!(:image => a)
-       end
-			 # to handle multiple images upload on create
-#      if params[:images]
-#        params[:images].each { |image|
-#          @trip.photos.create(image: image)
-#        }
-#      end
+			# to handle multiple images upload on create
+#			params[:photos]['image'].each do |a|
+#          @photo = @trip.photos.create!(:image => a)
+#       end
       redirect_to trips_url
     else
       render 'new'
@@ -55,6 +43,7 @@ class TripsController < ApplicationController
 	
 	def edit
 		@trip = Trip.find(params[:id])
+		3.times { @trip.photos.build}
 	end
 	
 	def update

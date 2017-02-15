@@ -1,4 +1,3 @@
-<%= form_for [trip, trip.photos.new] do |photos_form| %>
       <li> 
         <%= photos_form.label :description %>
         <%= photos_form.text_field :description %>
@@ -7,18 +6,5 @@
 					add an image....
 					<%= photos_form.file_field :image %>
 				</div>
-				<div>
-						<%= photos_form.submit %>
-				</div>
-    <% end %>
-  
-	<%= f.fields_for [trip, trip.photos.new] do |photos_form| %>
-      <li> 
-        <%= photos_form.label :description %>
-        <%= photos_form.text_field :description %>
-      </li>
-			  <div class="field">
-					add an image....
-					<%= photos_form.file_field :image %>
-				</div>
-    <% end %>
+
+

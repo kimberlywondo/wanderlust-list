@@ -1,36 +1,33 @@
-<div id='yourtripscontainer'>
-	<h1>Places you've been</h1>
-	<% if @trips.count == 0 %>
-		<p>Add your first trip!</p>
-	<% else %>
-	<% @trips.each do |trip| %>
-		<div class="card" style="width: 300px;">
-			<div class="card-divider">
-				<h4><%= link_to trip_path(trip) do %>
-							<%= trip.city %>
-				</h4>
-				<% end %>
-				<%= image_tag(trip.photos.first.image_url(:thumb).to_s) %>
-				
-			</div>
-			
-			<div class="card-section">
-				<a><%= link_to 'Edit', edit_trip_path(trip) %>
-				</a>
-				<a><%= link_to 'Destroy', trip_path(trip),
+<div class='trips-container'>
+	<h1>You've been</h1>
+		<% if @trips.count == 0 %>
+			<p>Add your first trip!</p>
+		<% else %>
+			<% @trips.each do |trip| %>
+			<div class="image">
+				<figure class="cap-bot">
+					<div class="overlay2">
+						<h4><%= link_to trip_path(trip) do %>
+								<%= trip.city %></h4>
+							</div>
+								<% end %>
+						<%= image_tag(trip.photos.first.image_url(:resize).to_s) %>
+						<figcaption>
+							<div id="tripedit">
+						<a><%= link_to 'Edit', edit_trip_path(trip) %></a> </div>
+						<div id="tripdelete">
+						<a><%= link_to 'Destroy', trip_path(trip),
 									method: :delete,
-									data: { confirm: 'Are you sure?' } %>
-				</a>
-			</div>
-		</div> 
+									data: { confirm: 'Are you sure?' } %></a>
+							</div>
+							</figcaption>
+					</figure>
+				</div>
 		<% end %>
 	<% end %>
+
 </div>
 
-<!--< image_tag(@photos) %>-->
-
-	<div>
-		<button><%= link_to 'Add A Trip', new_trip_path %></button>
-		<button><%= link_to 'Explore', trips_explore_path %></button>
-	</div>
-	
+<!-- <div>
+	<h1>You're Going</h1>
+</div> -->

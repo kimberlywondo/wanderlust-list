@@ -1,17 +1,22 @@
-<h1>EXPLORE!</h1>
-<% @trips.each do |trip| %>
-<div class="card" style="width: 300px;">
-  <div class="card-divider">
-    <p><%= trip.user.username %>'s trip to <%= trip.city %></p>
-		<p><%= trip.country%></p>
-		<%= image_tag(trip.photos.first.image_url(:thumb).to_s) %>
-		
-  </div>
-<!--  < image_tag(@photo.image_url.to_s) %>-->
-  <div class="card-section">
-		<p>ADD PHOTO COUNT</p>
-		<a><%= link_to 'Show', trip_path(trip) %></a>
-    <a><%= link_to 'Add to my List', edit_trip_path(trip) %></a>
-  </div>
-</div>	    
-<% end %>
+<div class="explorecontainer">
+    <% @trips.each do |trip| %>
+    <div class="image">
+        <figure class="cap-bot">
+            <div class="overlay">
+                <a><%= trip.user.username %>'s trip to</a>
+                <br>
+                <a id="tripcity"><%= trip.city %></a>
+                <br>
+                <a><%= trip.country%></a>
+            </div>
+            <%= image_tag(trip.photos.first.image_url(:resize).to_s) %>
+            <%= link_to trip_path(trip) do%>
+            <figcaption>
+                <%= trip.photos.count %>
+                photos
+            </figcaption>
+            <% end %>
+        </figure>
+    </div>
+    <% end %>
+</div>

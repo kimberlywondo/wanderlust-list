@@ -23,15 +23,23 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  # process scale: [200, 300]
+#   process scale: [200, 300]
   #
-  # def scale(width, height)
-  #   # do something
-  # end
+#   def scale(width, height)
+#     # do something
+#   end
 
+	 version :normal do
+    process :resize_to_fill => [326, 326]
+  end
+
+	 version :resize do
+    process resize_to_fill: [426, 426]
+         process crop: '426x426+0+0'
+  end
   # Create different versions of your uploaded files:
    version :thumb do
-     process resize_to_fit: [50, 50]
+     process resize_to_fit: [150, 150]
    end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -45,5 +53,36 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+	
+	protected
+#        def process_original_version
+#        image = ::MiniMagick::Image::read(File.binread(@file.file))
+#					#original is landscape
+#        if image[:width] > image[:height]
+#            resize_to_fill 400, 300
+#        else
+#					#original is portrait
+#            resize_to_fill 400, 300
+	    # Simplest way
+    def crop(geometry)
+      manipulate! do |img|      
+        img.crop(geometry)
+        img
+      end    
+    end
 
+    # Resize and crop square from Center
+    def resize_and_crop(size)  
+      manipulate! do |image|                 
+        if image[:width] < image[:height]
+          remove = ((image[:height] - image[:width])/2).round 
+          image.shave("0x#{remove}") 
+        elsif image[:width] > image[:height] 
+          remove = ((image[:width] - image[:height])/2).round
+          image.shave("#{remove}x0")
+        end
+        image.resize("#{size}x#{size}")
+        image
+      end
+    end
 end

@@ -2,11 +2,11 @@
 <p>
 
 </p>
-<!--< @trip.photos.each do |photo| %>-->
+<% @trip.photos.each do |photo| %>
 <!--	<= link_to 'Edit Photo', edit_trip_photo_path(@trip) %>-->
-  <%= image_tag(photo.image_url(:thumb).to_s) %>
-  <%= photo.description %>
-<!--< end %>-->
+<%= photo.description %>
+<% end %>
+<%= image_tag(photo.image_url(:normal).to_s) %>
 <p>
 	<% if current_user.id == @trip.user_id %>
   <%= link_to 'Destroy Photo', [photo.trip, photo],

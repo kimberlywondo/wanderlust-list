@@ -20,19 +20,13 @@
     <%= f.text_area :country %>
   </div>
 
-	<%= f.fields_for :photos do |photos_form| %>
-      <li> 
-        <%= photos_form.label :description %>
-        <%= photos_form.text_field :description %>
-      </li>
-			  <div class="field">
-					add an image....
-					<%= photos_form.file_field :image, multiple: true, name: "photos[image][]" %>
-				</div>
-<!--    <= file_field_tag "images[]", type: :file, multiple: true %>-->
+<%= f.fields_for :photos do |photos_form| %>
+<%= render 'trip', photos_form: photos_form %>
+<% end %>
+
+
 	<div>
     <%= f.submit %>
   </div>
+<% end %>
 
-<% end %>
-<% end %>
