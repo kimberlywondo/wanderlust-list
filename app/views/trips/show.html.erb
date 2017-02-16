@@ -1,28 +1,21 @@
+<html>
 <!-- Not using this page... link_to trip_photos_path(trip) (photos.index.html.erb) in index and explore instead -->
+<body>
+	<h4><%= @trip.user.username %>'s trip to: </h4>
+	<h4><%= @trip.city %>, <%= @trip.country %></h4>
 
-<h4><%= @trip.user.username %>'s trip to: </h4>
-<h4><%= @trip.city %>, <%= @trip.country %></h4>
+		<%= render @trip.photos %>
+	<div>
+		<p><% if current_user.id == @trip.user_id %>
+				<a><%= link_to 'Edit Trip', edit_trip_path %></a>
+	    	<a><%= link_to 'Delete Trip', trip_path,
+	              method: :delete,
+	              data: { confirm: 'Are you sure?' } %></a>
+			<% end %></p>
+	</div>
+		<!--<= link_to 'Edit', edit_trip_path(@trip) %> |-->
+		<%= link_to 'Go to your List', trips_path %>
+		<%= link_to 'Explore more cities', trips_explore_path %>
+</body>
 
-<%= render @trip.photos %>
-
-
-<div>
-	<p>
-		<% if current_user.id == @trip.user_id %>
-			<a><%= link_to 'Edit Trip', edit_trip_path %></a>
-    	<a><%= link_to 'Delete Trip', trip_path,
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></a>
-		<% end %>
-	</p>
-</div>
-
-
-
-
-
-
-<!--<= link_to 'Edit', edit_trip_path(@trip) %> |-->
-
-<%= link_to 'Go to your List', trips_path %>
-<%= link_to 'Explore more cities', trips_explore_path %>
+</html>

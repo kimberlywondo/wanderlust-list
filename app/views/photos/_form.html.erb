@@ -1,19 +1,19 @@
-<h1>PHOTO _form.html.erb</h1>
+<html>
 
-<%= form_for([@trip, @photo]) do |f| %>
-    <p>
-      <%= f.text_area :description, placeholder: "description" %>
-    </p>
+<body>
+  <h1>PHOTO _form.html.erb</h1>
+    <%= form_for([@trip, @photo]) do |f| %>
+      <p><%= f.text_area :description, placeholder: "description" %></p>
 
-		<div class="field">
-				add an image....
-				<%= f.file_field :image, class:"fancy radius button" %>
-		</div>
+  		<div class="field">
+  				add an image....
+  				<%= f.file_field :image, class:"fancy radius button" %>
+  		</div>
 
-    <p>
-      <%= f.submit %>
-    </p>
-<!--<= link_to 'Add Photo', photo_path(@photo) %>		-->
-<!--<= link_to 'Add Photo', trip_path(@trip) %>-->
+      <p><%= f.submit %></p>
+  <!--<= link_to 'Add Photo', photo_path(@photo) %>		-->
+  <!--<= link_to 'Add Photo', trip_path(@trip) %>-->
+    <% end %>
+</body>
 
-<% end %>
+</html>

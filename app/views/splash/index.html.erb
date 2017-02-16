@@ -1,18 +1,21 @@
-<body class="<%= @home_page ? 'homepage' : ''%>">
-<div class="splash-wrapper">
-<% if user_signed_in? %>
-	<div>
-		<button><%= link_to 'My WanderList', trips_path, :class => 'button-gradient' %></button>
-		<button><%= link_to 'Start Exploring', trips_explore_path, :class => 'button-gradient' %></button>
-	</div>
-	</div>
-<% else %>
+<html>
 
-<div class="splash-tagline">
-	<p>Sign Up.</p>
-	<p>Share your experiences.</p>
-	<p>Find inspiration.</p>
-</div>
-<% end %>
-<%= yield %>
+<body class="<%= @home_page ? 'homepage' : ''%>">
+	<div class="splash-wrapper">
+	<% if user_signed_in? %>
+			<div>
+				<button><%= link_to 'My WanderList', trips_path, :class => 'button-gradient' %></button>
+				<button><%= link_to 'Start Exploring', trips_explore_path, :class => 'button-gradient' %></button>
+			</div>
+	</div>
+	<% else %>
+		<div class="splash-tagline">
+			<p>Sign Up.</p>
+			<p>Share your experiences.</p>
+			<p>Find inspiration.</p>
+		</div>
+	<% end %>
+	<%= yield %>
 </body>
+
+</html>

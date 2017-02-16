@@ -1,7 +1,10 @@
-<div class="reveal" id="signupmodal" data-reveal>
+<html>
+
+<body>
+  <div class="reveal" id="signupmodal" data-reveal>
     <p class="lead">
-        <h2>Sign up</h2>
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <h2>Sign up</h2>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
           <div class="field">
               <%= f.text_field :username, placeholder: "username", autofocus: true  %>
@@ -24,23 +27,25 @@
           </div>
 
           <br>
+
           <div class="actions">
               <div class="row">
-                      <a><%= f.submit "			Sign Up			", class:"fancy radius button" %></a>
+                <a><%= f.submit "			Sign Up			", class:"fancy radius button" %></a>
               </div>
           </div>
+
           <br>
-        <% end %>
+      <% end %>
         <!-- <p>
             <h6>Already a member?</h6>
         </p> -->
-
         <!--extracted from render devise/shared/links-->
-
         <!-- <%= render "devise/shared/links" %> -->
+    <!--MODAL CLOSE BUTTON  -->
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</body>
 
-<!--MODAL CLOSE BUTTON  -->
-        <button class="close-button" data-close aria-label="Close modal" type="button">
-            <span aria-hidden="true">&times;</span>
-        </button>
-</div>
+</html>

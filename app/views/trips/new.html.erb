@@ -1,9 +1,15 @@
-<div class="newtripform">
-<h1>Share an experience!</h1>
+<html>
 
-<%= render 'form', trip: @trip %>
+<body>
+  <div class="newtripform">
+    <h1>Share an experience!</h1>
 
-<!--<= render 'photos/form', photo: @photo  %>-->
+    <%= render 'form', trip: @trip %>
 
-<button class="fancy radius button"><%= link_to 'Back', trips_path %></button>
-</div>
+    <!--<= render 'photos/form', photo: @photo  %>-->
+
+    <button class="fancy radius button"><%= link_to 'Back', trips_path %></button>
+  </div>
+</body>
+
+</html>

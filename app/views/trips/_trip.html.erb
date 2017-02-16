@@ -1,11 +1,17 @@
-    <div class="photoform">
+<html>
+
+<body>
+  <div class="photoform">
       <div>
         <%= photos_form.text_field :description, placeholder: "description" %>
       </div>
-			  <div>
-					add an image....
-          <div>
-					<%= photos_form.file_field :image %>
+			<div>
+				add an image....
+        <div>
+				  <%= photos_form.file_field :image %>
         </div>
-				</div>
+			</div>
   </div>
+</body>
+
+</html>

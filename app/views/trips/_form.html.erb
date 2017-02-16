@@ -1,32 +1,37 @@
-<div class="tripform">
-<%= form_for @trip do |f| %>
-  <% if trip.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
+<html>
 
-      <ul>
-      <% trip.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<body>
+  <div class="tripform">
+    <%= form_for @trip do |f| %>
+      <% if trip.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(trip.errors.count, "error") %>
+                prohibited this trip from being saved:</h2>
+            <ul>
+                <% trip.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div>
-    <%= f.text_field :city, placeholder: "city" %>
+      <div>
+          <%= f.text_field :city, placeholder: "city" %>
+      </div>
+
+      <div>
+          <%= f.text_area :country, placeholder: "country" %>
+      </div>
+
+      <%= f.fields_for :photos do |photos_form| %>
+        <%= render 'trip', photos_form: photos_form %>
+      <% end %>
+
+      <div>
+          <%= f.submit "add trip", class:"fancy radius button" %>
+      </div>
+    <% end %>
   </div>
+</body>
 
-  <div>
-    <%= f.text_area :country, placeholder: "country" %>
-  </div>
-
-<%= f.fields_for :photos do |photos_form| %>
-<%= render 'trip', photos_form: photos_form %>
-<% end %>
-
-
-	<div>
-    <%= f.submit "add trip", class:"fancy radius button" %>
-  </div>
-<% end %>
-</div>
+</html>

@@ -1,23 +1,29 @@
-<div class="explorecontainer">
-  <h1>Explore</h1>
-    <% @trips.each do |trip| %>
-    <div class="image">
-        <figure class="cap-bot">
-            <div class="overlay">
-                <a><%= trip.user.username %>'s trip to</a>
-                <br>
-                <a id="tripcity"><%= trip.city %></a>
-                <br>
-                <a><%= trip.country%></a>
-            </div>
-            <%= image_tag(trip.photos.first.image_url(:resize).to_s) %>
-            <%= link_to trip_photos_path(trip)do%>
-            <figcaption>
-                <%= trip.photos.count %>
-                photos
-            </figcaption>
-            <% end %>
-        </figure>
-    </div>
-    <% end %>
-</div>
+<html>
+
+<body>
+  <div class="explorecontainer">
+    <h1>Explore</h1>
+      <% @trips.each do |trip| %>
+      <div class="image">
+          <figure class="cap-bot">
+              <div class="overlay">
+                  <a><%= trip.user.username %>'s trip to</a>
+                  <br>
+                  <a id="tripcity"><%= trip.city %></a>
+                  <br>
+                  <a><%= trip.country%></a>
+              </div>
+              <%= image_tag(trip.photos.first.image_url(:resize).to_s) %>
+              <%= link_to trip_photos_path(trip)do%>
+              <figcaption>
+                  <%= trip.photos.count %>
+                  photos
+              </figcaption>
+              <% end %>
+          </figure>
+      </div>
+      <% end %>
+  </div>
+</body>
+
+</html>
