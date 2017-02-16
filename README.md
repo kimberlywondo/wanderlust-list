@@ -1,31 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
 # WanderList
 ### What is it?
 WanderList is a full-stack Ruby on Rails web application that allows travelers to share photo collections from cities around the world. You can explore other users photo collections and find inspiration for your own future trips.
+
+## Wireframe
+
+![Wireframe](wanderlust_list/WF1.jpg)
+![Wireframe](wanderlust_list/WF2.jpg)
 
 ### How is it made?
 * [Ruby](https://www.ruby-lang.org/en/ "ruby.org")
@@ -38,7 +20,11 @@ WanderList is a full-stack Ruby on Rails web application that allows travelers t
     * [mini_magick](https://github.com/minimagick/minimagick "mini_magick")
     * [seed_dump](https://github.com/rroblak/seed_dump "Seed file generator")
 
-### Running Relevant Locally
+    * Design - Google Fonts, foundation-rails (Navbar & buttons)
+    * Project Planning - [Trello](https://trello.com/c/a1kHZcPC/8-features "Planning")
+    * IDE - Atom 1.14.1
+
+### Running WanderList Locally
 WanderList is written in Ruby (v 2.3.1).
 WanderList is written in Ruby on Rails (v 5.0.1).
 
@@ -49,5 +35,5 @@ $ bundle install
 $ rails s
 ```
 
-#### Deployed :: [WanderList](stay-relevant.herokuapp.com "WanderList App")
+#### Deployed :: [WanderList]( "WanderList App")
 #### Source Code :: [GitHub](https://github.com/kimberlywondo/wanderlust-list "GitHub Repo")
