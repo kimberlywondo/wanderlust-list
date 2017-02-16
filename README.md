@@ -6,8 +6,8 @@ WanderList is a full-stack Ruby on Rails web application that allows travelers t
 
 ## Wireframe
 
-![Wireframe](/wanderlust_list/WF1.jpg)
-![Wireframe](/wanderlust_list/WF2.jpg)
+![Wireframe](app/assets/images/WF1.jpg)
+![Wireframe](app/assets/images/WF2.jpg)
 
 ### How is it made?
 * [Ruby](https://www.ruby-lang.org/en/ "ruby.org")
